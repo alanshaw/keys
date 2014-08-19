@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Keys</title>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="lib/semantic/collections/grid.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/collections/form.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/collections/menu.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/collections/table.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/basic.icon.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/button.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/icon.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/header.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/segment.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/label.css">
+<link rel="stylesheet" type="text/css" href="lib/semantic/elements/input.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="ui menu">
+  <a class="active item">
+    <i class="key icon"></i> Keys
+  </a>
+  <a class="item">
+    <i class="settings icon"></i> Settings
+  </a>
+  <!--div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input placeholder="Search..." type="text">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+  </div-->
+</div>
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="fluid ui blue labeled icon button"><i class="add icon"></i> Add Key</div>
+    <table id="key-list" class="ui table segment">
+      <thead>
+        <tr>
+          <th>
+            <div class="fluid ui icon input">
+              <input placeholder="Search..." type="text">
+              <i class="search link icon"></i>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+        </tr>
+        <tr class="active">
+          <td>Jamie</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+        </tr>
+        <tr>
+          <td>John</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+        </tr>
+        <tr>
+          <td>John</td>
+        </tr>
+        <tr>
+          <td>Jamie</td>
+        </tr>
+        <tr>
+          <td>Jill</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="twelve wide column">
+    <div class="ui form segment piled">
+      <div class="field">
+        <label for="name-input">Name</label>
+        <div class="ui left labeled icon input">
+          <input id="name-input" placeholder="Name" type="text">
+          <i class="key icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label for="username-input">Username</label>
+          <div class="ui left labeled icon input">
+            <input id="username-input" placeholder="Username/Email" type="text">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label for="password-input">Password</label>
+          <div class="ui left labeled icon input">
+            <input id="password-input" placeholder="Password" type="text">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="notes-input">Notes</label>
+        <div class="ui left labeled icon input">
+          <textarea id="notes-input"></textarea>
+          <i class="pencil icon"></i>
+        </div>
+      </div>
+      <div class="ui red labeled icon button"><i class="delete icon"></i> Remove Key</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

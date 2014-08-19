@@ -1,0 +1,19 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 15px;
+  background: #f7f7f7;
+  margin: 0px;
+  padding: 0px;
+  color: #555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+}
+
+#key-list tr {
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+#key-list tr:hover {
+  cursor: pointer;
+  color: #6ECFF5;
+}
