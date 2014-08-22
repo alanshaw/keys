@@ -14,23 +14,17 @@ keys.config(["$routeProvider", function ($routeProvider) {
 }])
 
 keys.controller("Open", function ($scope, $location, $timeout) {
+  $scope.newFile = function () {
+    $location.path("/key-list")
+  }
   $scope.onFileChange = function (file) {
-    $location.path("/key-list").search("file", file)
-    $scope.$apply()
+    $location.path("/key-list").search("file", file); $scope.$apply()
   }
   $timeout(function () { $("#open").transition("pulse") }, 250)
 })
 
 keys.controller("KeyList", function ($scope, $location) {
   var encryptedContents = null
-
-  $scope.$evalAsync(function () {
-    fs.readFile($location.search().file, "utf8", function (er, contents) {
-      if (er) return alert(er) // TODO: error handle
-      encryptedContents = contents
-      $("#password-modal").modal("setting", {closable: false}).modal("show")
-    })
-  })
 
   $scope.password = null
   $scope.keys = []
@@ -71,5 +65,17 @@ keys.controller("KeyList", function ($scope, $location) {
 
   $scope.onPasswordKeyup = function (e) {
     if (e.keyCode == 13) $("#password-modal .field").addClass("error")
+  }
+
+  if ($location.search().file) {
+    $scope.$evalAsync(function () {
+      fs.readFile($location.search().file, "utf8", function (er, contents) {
+        if (er) return alert(er) // TODO: error handle
+        encryptedContents = contents
+        $("#password-modal").modal("setting", {closable: false}).modal("show")
+      })
+    })
+  } else {
+    $scope.addKey()
   }
 })
