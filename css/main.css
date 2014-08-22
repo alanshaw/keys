@@ -28,3 +28,7 @@ body {
   cursor: pointer;
   color: #6ECFF5;
 }
+
+#password-modal .content {
+  padding-top: 0;
+}

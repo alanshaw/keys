@@ -58,3 +58,18 @@
     </div>
   </div>
 </div>
+
+<div id="password-modal" class="ui basic modal">
+  <div class="header">
+    <i class="unlock alternate icon"></i> Password
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <div class="ui left labeled fluid input">
+          <input placeholder="Password" type="password" ng-model="password" ng-change="onPasswordChange()" ng-keyup="onPasswordKeyup($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

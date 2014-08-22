@@ -7,9 +7,9 @@
     "title": "Keys",
     "icon": "img/logo-keys.png",
     "width": 1000,
-    "height": 570,
+    "height": 500,
     "min_width": 800,
-    "min_height": 570,
+    "min_height": 500,
     "toolbar": false
   },
   "scripts": {
