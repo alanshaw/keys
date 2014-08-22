@@ -20,7 +20,7 @@ keys.controller("Open", function ($scope, $location, $timeout) {
   $scope.onFileChange = function (file) {
     $location.path("/key-list").search("file", file); $scope.$apply()
   }
-  $timeout(function () { $("#open").transition("pulse") }, 250)
+  $timeout(function () { $("#open").transition("tada") }, 250)
 })
 
 keys.controller("KeyList", function ($scope, $location) {

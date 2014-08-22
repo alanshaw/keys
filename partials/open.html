@@ -1,9 +1,9 @@
-<div id="open" class="ui icon message">
-  <div id="logo"><img src="img/logo-keys.png"></div>
+<div id="open" class="ui icon message text-center">
+  <div><img src="img/logo-keys.png"></div>
   <div class="content">
-    <p class="text-center"><span class="ui blue labeled icon small button" ng-click="newFile()"><i class="file icon"></i> New key file</span></p>
+    <p><span class="ui blue labeled icon small button" ng-click="newFile()"><i class="file icon"></i> New key file</span></p>
     <div class="ui horizontal divider">Or</div>
-    <h1 class="header text-center">Open key file</h1>
-    <p class="text-center"><input type="file" accept=".ke" onchange="angular.element(this).scope().onFileChange(this.value)"></p>
+    <h1 class="header">Open key file</h1>
+    <p><input type="file" accept=".ke" onchange="angular.element(this).scope().onFileChange(this.value)"></p>
   </div>
 </div>
