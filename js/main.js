@@ -1,18 +1,39 @@
+var fs = require("fs")
 var shortid = require("shortid")
 
-var keys = angular.module("keys", [])
+var keys = angular.module("keys", ["ngRoute"])
 
-keys.controller("KeyList", function ($scope) {
-  var keys = [
-    {id: shortid(), name: "foo", username: "foo", password: "m7878m7eb3", notes: "foo notes"},
-    {id: shortid(), name: "bar", username: "bar", password: "h56h65h76", notes: ""},
-    {id: shortid(), name: "baz", username: "baz", password: "2f2ff2f2f2", notes: ""},
-    {id: shortid(), name: "boz", username: "boz", password: "3f4ffff", notes: ""},
-    {id: shortid(), name: "bozo", username: "bozo", password: "ef3433", notes: ""}
-  ]
+keys.config(["$routeProvider", function ($routeProvider) {
+  $routeProvider.when("/", {
+    templateUrl: "partials/open.html",
+    controller: "Open"
+  }).when("/key-list", {
+    templateUrl: "partials/key-list.html",
+    controller: "KeyList"
+  })
+}])
 
-  $scope.keys = keys
-  $scope.key = keys[0]
+keys.controller("Open", function ($scope, $location) {
+  $scope.onFileChange = function (file) {
+    $location.path("/key-list").search("file", file)
+    $scope.$apply()
+  }
+})
+
+keys.controller("KeyList", function ($scope, $location) {
+  fs.readFile($location.search().file, "utf8", function (er, contents) {
+    if (er) return alert(er) // TODO: error handle
+    try {
+      $scope.keys = JSON.parse(contents)
+      $scope.key = keys[0]
+      $scope.$apply()
+    } catch(er) {
+      return alert(er) // TODO: error handle
+    }
+  })
+
+  $scope.keys = []
+  $scope.key = null
 
   $scope.isActive = function (key) {
     return $scope.key ? $scope.key.id == key.id : false
@@ -29,7 +50,7 @@ keys.controller("KeyList", function ($scope) {
   }
 
   $scope.removeKey = function (key) {
-    var i = keys.indexOf(key)
+    var keys = $scope.keys, i = keys.indexOf(key)
     $scope.key = keys[i + 1] ? keys[i + 1] : keys[i - 1] ? keys[i - 1] : null
     keys.splice(i, 1)
   }

@@ -1,0 +1,60 @@
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="fluid ui blue labeled icon button" ng-click="addKey()"><i class="add icon"></i> Add Key</div>
+    <table id="key-list" class="ui table segment">
+      <thead>
+      <tr>
+        <th>
+          <div class="fluid ui icon input">
+            <input placeholder="Search..." type="text" ng-model="search">
+            <i class="search link icon"></i>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="key in keys | filter:search" ng-class="{active: isActive(key)}" ng-click="setKey(key)">
+        <td>{{key.name || "[No Name]"}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="twelve wide column">
+    <div ng-if="key" class="ui form segment piled">
+      <div class="field">
+        <label for="name-input">Name</label>
+        <div class="ui left labeled icon input">
+          <input id="name-input" placeholder="Name" type="text" ng-model="key.name">
+          <i class="key icon"></i>
+          <div class="ui corner label">
+            <i class="icon asterisk"></i>
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label for="username-input">Username</label>
+          <div class="ui left labeled icon input">
+            <input id="username-input" placeholder="Username/Email" type="text" ng-model="key.username">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label for="password-input">Password</label>
+          <div class="ui left labeled icon input">
+            <input id="password-input" placeholder="Password" type="text" ng-model="key.password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="notes-input">Notes</label>
+        <div class="ui left labeled icon input">
+          <textarea id="notes-input" ng-model="key.notes"></textarea>
+          <i class="pencil icon"></i>
+        </div>
+      </div>
+      <div class="ui red labeled icon button" ng-click="removeKey(key)"><i class="delete icon"></i> Remove Key</div>
+    </div>
+  </div>
+</div>
