@@ -25,7 +25,7 @@ keys.controller("KeyList", function ($scope, $location) {
     if (er) return alert(er) // TODO: error handle
     try {
       $scope.keys = JSON.parse(contents)
-      $scope.key = keys[0]
+      $scope.key = $scope.keys[0]
       $scope.$apply()
     } catch(er) {
       return alert(er) // TODO: error handle
@@ -42,7 +42,7 @@ keys.controller("KeyList", function ($scope, $location) {
   $scope.setKey = function (key) {
     $scope.key = key
   }
-  
+
   $scope.addKey = function () {
     var key = {id: shortid()}
     keys.push(key)
