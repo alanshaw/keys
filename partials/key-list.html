@@ -18,6 +18,7 @@
       </tr>
       </tbody>
     </table>
+    <input type="file" accept=".ke" nwsaveas="{{file}}" onchange="angular.element(this).scope().onFileChange(this.value, this)"/>
   </div>
   <div class="twelve wide column">
     <div ng-if="key" class="ui form segment stacked">
@@ -65,9 +66,24 @@
   </div>
   <div class="content">
     <div class="ui form">
+      <div ng-class="{field: 1, error: passwordError}">
+        <div class="ui left labeled fluid input">
+          <input placeholder="Password" type="password" ng-model="password" ng-keyup="onPasswordKeyup($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="set-password-modal" class="ui basic modal">
+  <div class="header">
+    <i class="unlock alternate icon"></i> Set master password
+  </div>
+  <div class="content">
+    <div class="ui form">
       <div class="field">
         <div class="ui left labeled fluid input">
-          <input placeholder="Password" type="password" ng-model="password" ng-change="onPasswordChange()" ng-keyup="onPasswordKeyup($event)">
+          <input placeholder="Password" type="password" ng-model="password" ng-keyup="onSetPasswordKeyup($event)">
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ body {
   top: 50%;
   left: 20%;
   width: 60%;
-  margin-top: -120px;
+  margin-top: -100px;
 }
 #open input[type=file] {
   width: 80px;
@@ -25,7 +25,7 @@ body {
   color: #6ECFF5;
 }
 
-#password-modal .content {
+#password-modal .content, #set-password-modal .content {
   padding-top: 0;
 }
 
