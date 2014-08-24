@@ -18,7 +18,7 @@
       </tr>
       </tbody>
     </table>
-    <input type="file" accept=".ke" nwsaveas="{{file}}" onchange="angular.element(this).scope().onFileChange(this.value, this)"/>
+    <input id="key-list-save" type="file" accept=".ke" nwsaveas="{{file}}" onchange="angular.element(this).scope().onFileChange(this.value, this)"/>
   </div>
   <div class="twelve wide column">
     <div ng-if="key" class="ui form segment stacked">

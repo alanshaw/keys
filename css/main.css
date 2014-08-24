@@ -24,6 +24,9 @@ body {
   cursor: pointer;
   color: #6ECFF5;
 }
+#key-list-save {
+  visibility: hidden;
+}
 
 #password-modal .content, #set-password-modal .content {
   padding-top: 0;

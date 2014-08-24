@@ -1,15 +1,23 @@
-var gui = require("nw.gui")
+(function () {
+  var gui = require("nw.gui")
 
-module.exports = function ($scope, $location, $timeout) {
-  gui.Window.get().menu = require("./open-menu")()
-
-  $scope.newFile = function () {
-    $location.path("/key-list")
+  function menu () {
+    var menu = new gui.Menu({type: "menubar"})
+    menu.createMacBuiltin("Keys")
+    return menu
   }
 
-  $scope.onFileChange = function (file) {
-    $location.path("/key-list").search("file", file); $scope.$apply()
-  }
+  keys.controller("Open", function ($scope, $location, $timeout) {
+    $scope.newFile = function () {
+      $location.path("/key-list")
+    }
 
-  $timeout(function () { $("#open").transition("pulse") }, 250)
-}
+    $scope.onFileChange = function (file) {
+      $location.path("/key-list").search("file", file); $scope.$apply()
+    }
+
+    $timeout(function () { $("#open").transition("pulse") }, 250)
+
+    gui.Window.get().menu = menu()
+  })
+})()
